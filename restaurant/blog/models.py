@@ -36,12 +36,13 @@ class Tag(models.Model):
 
 
 class Article(models.Model):
+
     titre = models.CharField(max_length=255)
     description = models.TextField()
     contenu = models.TextField()
     image = models.ImageField(upload_to="images/Article")
     tague = models.ManyToManyField(Tag, related_name='tag_Article')
-    cathegorie = models.ForeignKey(CategorieArticle, on_delete=models.CASCADE, related_name='categorie_Article')
+    categorie = models.ForeignKey(CategorieArticle, on_delete=models.CASCADE, related_name='categorie_Article')
 
 
     date_add = models.DateTimeField(auto_now_add=True)
